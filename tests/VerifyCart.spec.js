@@ -4,7 +4,8 @@ const {test, expect} = require('@playwright/test');
 test('VerifyCart',async()=>{
     //launch chromium browser
     const browser = await chromium.launch({
-        headless:false
+        headless:false,
+        slowMo: 3000
         
     })
     //Creating a new browser context
@@ -17,19 +18,22 @@ test('VerifyCart',async()=>{
     //Search for the product
     await page.locator("//input[@name='search']").fill("Men T shirt");
     await page.click("//button[@id='submit_search']");
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(2000);
     //select product
     // await page.locator('#product-overlay').hover();
     await page.locator("//a[normalize-space()='View Product']").click();
     const pname = await page.locator('//div[@class="product-information"]//h2').textContent();
     console.log(pname);
-    //Add to cart
-    await page.locator('//button[@class="btn btn-default cart"]').click();
-    //Open cart
-    //await page.click('');
-    //verifyCart:
-    await page.locator('//a[@href="/view_cart"]').click();
-    await page.waitForTimeout(3000);
+    await page.locator('#quantity').fill('1'); //selectQuantity
+    await page.locator("//button/i[@class='fa fa-shopping-cart']").click(); //add to cart
+    await page.locator('//a[@href="/view_cart"]//u').click();
+    const cartItem = await page.locator('//table//tbody//td//h4').textContent();
+    console.log(cartItem);
+    expect(pname).toContain(cartItem);
+
+    // Delete item from the cart
+    await page.locator('cart_quantity_delete').click();
+    await expect (page).locator("//b[normalize-space()='Cart is empty!']").toContain('Cart is empty!');
     await page.close();
 
 })

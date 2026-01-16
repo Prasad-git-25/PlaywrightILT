@@ -10,11 +10,11 @@ test('AmazonSearch',async()=>{
     await page.goto(url);
     await expect(page).toHaveURL(url);
     //Search for the product
-    await page.locator("//input[@id='twotabsearchtextbox']").fill("Amazon Basics Universal Portable Smartphone Holder for Car");
+    await page.locator("//input[@id='twotabsearchtextbox']").fill("Mobile holder");
     await page.click('//input[@id="nav-search-submit-button"]');
-    
-    //select product
-     await page.click('//div[@data-component-type="s-search-result"][1]');
+    await page.waitForSelector('//div[@data-component-type="s-search-result"]');
+    await page.locator('//div[@data-component-type="s-search-result"][1]//h2//a').click();
+    await page.getByRole('button', {name: 'submit.addToCart'}).click();
      //await expect(page.waitForSelector('title="Add to Shopping Cart')).toBeVisible();
      //await page.getByTitle('title="Add to Shopping Cart').click();
     // const pname = await page.locator("//span[@id='productTitle']").textContent();
