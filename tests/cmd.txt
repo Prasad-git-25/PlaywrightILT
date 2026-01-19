@@ -1,0 +1,7 @@
+ npx playwright test
+ npx playwright codegen
+ npx playwright test testname.spec.js --project=chromium/webkit/firefox --headed -debug(to run in debug mode)
+ npx playwright test testname.spec.js -ui(mode)
+ npx playwright test --grep @smoke - Run via tag
+ npx playwright test --grep @smoke|@reg -Running multiple tags
+ npx playwright test --grep invert @smoke

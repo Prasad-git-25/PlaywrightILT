@@ -15,6 +15,11 @@ test('VerifyCart',async()=>{
     // Launch amazon page
     await page.goto('https://automationexercise.com/products');
     await expect(page).toHaveURL('https://automationexercise.com/products');
+    // Get cookies
+      
+    const cookies = await context.cookies();
+    console.log("ALL COOKIES:", cookies);
+
     //Search for the product
     await page.locator("//input[@name='search']").fill("Men T shirt");
     await page.click("//button[@id='submit_search']");
@@ -35,7 +40,7 @@ test('VerifyCart',async()=>{
     await page.locator('cart_quantity_delete').click();
     await expect (page).locator("//b[normalize-space()='Cart is empty!']").toContain('Cart is empty!');
     await page.close();
-
+    
 })
 
 
