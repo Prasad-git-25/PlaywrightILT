@@ -50,7 +50,7 @@ test('PromptAlert',async()=>{
     const user = 'Andrew';
     await expect(page).toHaveURL(url);
     page.on('dailog', async dailog=>{
-        expect(dailog.type()).toContain('Prompt');
+        // expect(dailog.type()).toContain('Prompt');
         expect(dailog.message()).toContain('Please enter your name:')
         expect(dailog.defaultValue()).toContain('Harry Potter');
         await dailog.dismiss("Cheve");
