@@ -13,7 +13,7 @@ test.beforeEach(async({page})=>{
       await page.waitForTimeout(3000);
 });
 //logged in add item and verify cart
-  test("@smoke Add item and verify cart",async()=>{
+  test("@smoke Add item and verify cart",async({page})=>{
 
     //go to home page
       const Home=new homePage(page);
@@ -22,25 +22,26 @@ test.beforeEach(async({page})=>{
       await Home.gotoCart();
     //validate the cart for the product
       const cart=new cartPage(page);
-      await this.page.waitForTimeout(3000)
-      const status=await this.page.CartItemList('Nokia lumia 1520')
-      expect(await status).toBe(true);
+      await page.waitForTimeout(3000)
+      const status=await cart.CartItemList('Nokia lumia 1520')
+      expect(cart.status).toBe(true);
       await page.close();
     })
 // AfterEach test taking screenshot as evidence
    test.afterEach(async({page},testinfo)=>{
     const date = new Date();
-    evidences = `testEvidence ${date}.png,`
+    // let evidences = `testEvidence ${date}.png`;
+    // console.log(evidences);
     await page.screenshot({
-        path: evidences,
+        path: 'screenshot.png',
         fullPage: true
     })
 
-    //attach screenshot to report using runtime annotation
-    testinfo.attach('testOutCome',{
-        path: evidences,
-        contentType: 'image/png'
-    })
+    // //attach screenshot to report using runtime annotation
+    // testinfo.attach('testOutCome',{
+    //     path: evidences,
+    //     contentType: 'image/png'
+    // })
    
 
 
