@@ -1,0 +1,14 @@
+    Common API status codes: 20x-success, 30x-redirection
+                             40x- client errors
+                             400 Bad Request
+401 Unauthorized
+403 Forbidden
+404 Not Found
+405 Method Not Allowed
+409 Conflict
+410 Gone
+415 Unsupported Media Type
+422 Unprocessable Entity
+
+50X- Internal server error
+                             

@@ -25,17 +25,17 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: 'html', "allure-playwright",
-  
- reporter: [
-    ['list'],
-    ['allure-playwright', {
-      outputFolder: 'allure-results', // where raw allure results (.json) go
-      detail: true,                   // include steps in the report
-      suiteTitle: false               // keep describe block titles as suites
-      // categoryFile: 'allure-categories.json', // optional custom categories
-    }],
-    // ['html', { open: 'never' }],    // optional: keep HTML reporter too
-  ],
+     reporter: 'html',
+//  reporter: [
+//     ['list'],
+//     ['allure-playwright', {
+//       outputFolder: 'allure-results', // where raw allure results (.json) go
+//       detail: true,                   // include steps in the report
+//       suiteTitle: false               // keep describe block titles as suites
+//       // categoryFile: 'allure-categories.json', // optional custom categories
+//     }],
+//     // ['html', { open: 'never' }],    // optional: keep HTML reporter too
+//   ],
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {

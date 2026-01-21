@@ -1,19 +1,25 @@
 
-const { test, expect, request } = require('@playwright/test');
 
-test('Simple GET request with baseURL', async () => {
+import { test, expect } from '../api_Fixtures/TodoApiFixture.js';
 
-  // Create custom API context with baseURL
-  const apiContext = await request.newContext({
-    baseURL: 'https://jsonplaceholder.typicode.com',
-    ignoreHTTPSErrors: true  // <-- base URL here
+test.describe('API Testing - Todos', () => {
+  test('@get Fetch records', async ({ todoApi }) => {
+    const response = await todoApi.getById(1);
+    expect(response.status()).toBe(200);
+    console.log(response.status());
+    const body = await response.json();
+    expect(body.id).toBe(1);
   });
 
-  // Send GET request using only the endpoint
-  const response = await apiContext.get('/todos/1');  
-  expect(response.status()).toBe(200);
-
-  // Parse the body
-  const data = await response.json();
-  console.log(data);
+  test('@post add records', async ({ todoApi }) => {
+    const response = await todoApi.create({
+      userId: 1,
+      title: 'adding record',
+      completed: false,
+    });
+    expect([200, 201]).toContain(response.status());
+    const body = await response.json();
+    console.log(response.status());
+    expect(body.title).toBe('adding record');
+  });
 });
