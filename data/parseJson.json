@@ -1,0 +1,11 @@
+    {
+"id": 1,
+"username": "TDVCP",
+"password": "TDVCP@123",
+"email": "TDVCP@gmail.com",
+"gender": "male",
+"image": "https://dummyjson.com/icon/emilys/128",
+"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...", 
+"refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+
