@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('Table', async ({ page }) => {
     await page.goto('https://testautomationpractice.blogspot.com/');
 
-    //const Table=await page.locator("//table[@name='BookTable']")
+    
     //console.log("Table value:", Table)
     const Table=await page.locator('#productTable')
     
