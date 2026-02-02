@@ -8,6 +8,7 @@ test.describe('dynamic table scenarios',()=>{
         const columns = await page.locator("//table[@id='productTable']//tbody//tr").count()
         console.log("TableName: " + Tname,rows,columns);
     })
+    //checking multiple aspects 
     test.only('FetchSpecsBasedOnName',async({page})=>{
         const name = 'Chrome';
         await page.goto(url);
