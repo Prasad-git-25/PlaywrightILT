@@ -1,6 +1,11 @@
 import {test,expect} from '@playwright/test';
 test.describe('dynamic table scenarios',()=>{
     const url= 'https://testautomationpractice.blogspot.com/';
+    let Network;
+    let Memory;
+    let CPU;
+    let disk;
+    const column = 
     test('fetchRow&ColumncountandTableName',async({page})=>{
         await page.goto(url);
         const Tname = await page.getByText("Dynamic Web Table").innerText();
@@ -12,7 +17,14 @@ test.describe('dynamic table scenarios',()=>{
     test.only('FetchSpecsBasedOnName',async({page})=>{
         const name = 'Chrome';
         await page.goto(url);
+        for(i=0;i<=row;i++){
+            if(){
+               
+            
+            }
+        }
         
-        console.log("TableName: " + Tname,rows,columns);
+        
+        // console.log("TableName: " + Tname,rows,columns);
     })
 })
