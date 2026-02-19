@@ -12,5 +12,6 @@ test("practiceMod",async({page})=>{
     await page.waitForTimeout(5000)
 
     console.log("App just launched")
+    //checking into branch
 
 })
