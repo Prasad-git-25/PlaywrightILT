@@ -1,0 +1,36 @@
+  TestCaseID, 
+  TestModule, 
+  TestCaseDescription, 
+  Preconditions, 
+  TestSteps,
+  TestData, 
+  ExpectedOutcomes, 
+  ActualOutcomes,
+  Status,
+  Comments.
+---------------------------------------
+    TestCaseID - 001
+    TestModule - launching the application
+    TestCaseDescription : Launch applicaion in chrome browser
+    Preconditions: Should have URL 
+    TestData = URl
+    Test steps: Go to chrome browser
+                Enter URL
+                Run the URL
+    ExpectedOutcomes: application will launch in chrome browser
+    ActualOutcomes: applicaion launched in chrome browser
+    Status: pass
+    Comments: screenshots
+    Note: The above test case should be more clear and actionable when writing test steps
+---------------------------------------------------------------------------------------------
+     TestCaseID: TC_SignUp_DemoBlaze_1
+     TestModule: TC_SignUp_DemoBlaze
+     TestCaseDescription: Sign in to the demoblaze application
+     Preconditions: Application is launched and available
+     TestDate: Test user data to sign in
+     TestSteps: Click on the sign in button
+                It will launch sign in window
+                enter test credentials
+                click sign in
+     ExpectedOutcomes: user account created in demoblaze
+---------------------------------------------------------------------------------------------
